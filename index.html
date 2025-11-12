@@ -1,370 +1,217 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Resume | Venkata Guravaiah Nallabothula</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 400px;
-            }
-        }
-        .nav-link.active {
-            color: #2563EB;
-            font-weight: 600;
-        }
-        .skill-tab.active {
-            border-color: #2563EB;
-            color: #2563EB;
-            font-weight: 600;
-        }
-        .project-tab.active {
-            background-color: #2563EB;
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive Resume of Venkata Guravaiah Nallabothula — Full Stack Web Developer skilled in React, Angular, and Laravel." />
+  <title>Interactive Resume | Venkata Guravaiah Nallabothula</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .chart-container { width: 100%; max-width: 600px; margin: auto; height: 350px; }
+    @media (min-width: 768px) { .chart-container { height: 400px; } }
+    .nav-link.active { color: #2563EB; font-weight: 600; }
+    .skill-tab.active { border-color: #2563EB; color: #2563EB; font-weight: 600; }
+    .project-tab.active { background-color: #2563EB; color: white; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <header class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-blue-600">
-                VGN
-            </div>
-            <div class="flex space-x-4 md:space-x-8">
-                <a href="#home" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
-                <a href="#skills" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Skills</a>
-                <a href="#experience" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Experience</a>
-                <a href="#education" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">Education</a>
-            </div>
-        </nav>
-    </header>
+  <header class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-xl font-bold text-blue-600">VGN</div>
+      <button id="menu-btn" class="md:hidden text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <div id="menu" class="hidden md:flex flex-col md:flex-row md:space-x-8 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent border-t md:border-0 shadow md:shadow-none p-4 md:p-0">
+        <a href="#home" class="nav-link text-gray-600 hover:text-blue-600">Home</a>
+        <a href="#skills" class="nav-link text-gray-600 hover:text-blue-600">Skills</a>
+        <a href="#experience" class="nav-link text-gray-600 hover:text-blue-600">Experience</a>
+        <a href="#education" class="nav-link text-gray-600 hover:text-blue-600">Education</a>
+      </div>
+    </nav>
+  </header>
 
-    <main class="container mx-auto px-6 py-2">
-        
-        <section id="home" class="min-h-[80vh] flex flex-col justify-center py-16 md:py-24">
-            <div class="max-w-4xl">
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Venkata Guravaiah Nallabothula</h1>
-                <p class="text-xl md:text-2xl text-blue-600 font-semibold mb-6">Full Stack Web Developer</p>
-                
-                <div class="flex flex-wrap gap-x-6 gap-y-2 text-gray-600 mb-8">
-                    <span>Markapuram, Andhra Pradesh</span>
-                    <span>|</span>
-                    <a href="tel:+916304180019" class="hover:text-blue-600">+91 63041 80019</a>
-                    <span>|</span>
-                    <a href="mailto:nvguravaiah@gmail.com" class="hover:text-blue-600">nvguravaiah@gmail.com</a>
-                </div>
+  <main class="container mx-auto px-4 sm:px-6">
 
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Professional Summary</h2>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        Welcome to my interactive portfolio. This application details my qualifications and projects. I am a highly motivated Full Stack Web Developer with a Bachelor of Technology in Computer Science, skilled in delivering comprehensive, end-to-end solutions. I excel at bridging the gap between design and robust backend systems, leveraging modern frameworks like React, Angular, and Laravel, along with data tools such as Python and Pandas. I am dedicated to optimizing performance, enhancing user experience, and adapting quickly in fast-paced environments.
-                    </p>
-                </div>
-            </div>
-        </section>
+    <section id="home" class="min-h-[80vh] flex flex-col justify-center py-16">
+      <div class="max-w-4xl mx-auto text-center md:text-left space-y-6">
+        <h1 class="text-3xl sm:text-5xl font-bold">Venkata Guravaiah Nallabothula</h1>
+        <p class="text-lg sm:text-2xl text-blue-600 font-semibold">Full Stack Web Developer</p>
 
-        <section id="skills" class="py-16 md:py-24">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Technical Skills</h2>
-            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
-                This section provides a dynamic overview of my technical abilities. Click the tabs to see my self-assessed proficiency in each area reflected in the chart below. This visualization helps to quickly understand my strengths across different domains.
-            </p>
-            
-            <div class="flex justify-center space-x-2 md:space-x-4 mb-8 border-b pb-2">
-                <button class="skill-tab active text-lg px-4 py-2 rounded-t-md transition duration-300 border-b-2" data-skill="frontend">Frontend</button>
-                <button class="skill-tab text-lg px-4 py-2 rounded-t-md transition duration-300 border-b-2 border-transparent" data-skill="backend">Backend</button>
-                <button class="skill-tab text-lg px-4 py-2 rounded-t-md transition duration-300 border-b-2 border-transparent" data-skill="tools">Databases & Tools</button>
-            </div>
-
-            <div class="chart-container w-full max-w-2xl mx-auto h-96 max-h-96 relative">
-                <canvas id="skillsChart"></canvas>
-            </div>
-        </section>
-
-        <section id="experience" class="py-5 md:py-24 bg-white rounded-xl shadow-lg p-6 md:p-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Professional Experience</h2>
-            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
-                Here, you can explore my professional roles. I've broken down my experience by project to highlight my specific contributions. Click a project tab to see the details and the technologies I utilized for each.
-            </p>
-
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8">
-                    <h3 class="text-2xl font-bold">Project Associate</h3>
-                    <p class="text-lg text-gray-700">Aptroid Consulting (India) PVT. LTD | Hyderabad, Telangana</p>
-                    <p class="text-md text-gray-500 italic">Feb 2024 – Present</p>
-                </div>
-
-                <div class="flex flex-wrap gap-4 mb-6">
-                    <button class="project-tab text-sm md:text-base px-4 py-2 rounded-full font-medium shadow-sm bg-gray-100 text-gray-700 hover:bg-gray-200 transition duration-300" data-project="zasper">
-                        Zasper Project (Frontend)
-                    </button>
-                    <button class="project-tab active text-sm md:text-base px-4 py-2 rounded-full font-medium shadow-sm transition duration-300" data-project="liveintent">
-                        LiveIntent Project (Full Stack)
-                    </button>
-                </div>
-
-                <div id="project-content-container">
-                    <div id="zasper-content" class="space-y-4 hidden">
-                        <p class="text-lg text-gray-800 font-semibold">Served as a Frontend Developer, developing and deploying dynamic, user-centric interfaces.</p>
-                        <ul class="list-disc list-outside space-y-2 pl-6 text-gray-700">
-                            <li>
-                                Integrated complex UI components seamlessly, leveraging Redux for state management and TanStack React Query for efficient, optimized data fetching, resulting in a smoother user experience.
-                            </li>
-                            <li>
-                                Gained practical experience with enterprise-level UI libraries (Ant Design), accelerating front-end development cycles.
-                            </li>
-                        </ul>
-                        <div class="pt-4">
-                            <h4 class="font-semibold mb-2">Key Technologies:</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">React.js</span>
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">TypeScript</span>
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Redux</span>
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">TanStack React Query</span>
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Ant Design</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="liveintent-content" class="space-y-4">
-                         <p class="text-lg text-gray-800 font-semibold">Spearheaded Full Stack development for the LiveIntent Project, enhancing functionality across the entire stack.</p>
-                        <ul class="list-disc list-outside space-y-2 pl-6 text-gray-700">
-                            <li>
-                                Contributed to the frontend using Angular for interactive user interfaces, ensuring seamless data presentation.
-                            </li>
-                            <li>
-                                Enhanced backend functionality using PHP/Laravel, Scala, and the Zio framework to optimize server-side performance and ensure high-efficiency data processing.
-                            </li>
-                            <li>
-                                Managed and optimized relational data across multiple database technologies, including Postgres DB and MySQL.
-                            </li>
-                        </ul>
-                        <div class="pt-4">
-                            <h4 class="font-semibold mb-2">Key Technologies:</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Angular</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">PHP</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Laravel</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Scala</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Zio Framework</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Postgres DB</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">MySQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="py-16 md:py-24">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Education & Certifications</h2>
-            <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-12">
-                My formal education and continuous learning credentials, which form the foundation of my technical knowledge.
-            </p>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Bachelor of Technology, CSE</h3>
-                    <p class="text-lg font-semibold text-gray-800">Rajiv Gandhi University of Knowledge Technologies, Nuzvid</p>
-                    <p class="text-md text-gray-600 mb-2">Graduated: 2024</p>
-                    <p class="text-lg text-gray-700 font-medium">CGPA: 9.0/10.0</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-bold text-blue-600 mb-3">Certification</h3>
-                    <p class="text-lg font-semibold text-gray-800">Cyber Security Virtual Internship Certification</p>
-                    <p class="text-md text-gray-600">Issued by: AICTE</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-gray-300 py-12">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
-            <p class="mb-6">Available for new opportunities. Availability: 2 Months' Notice Period.</p>
-            <div class="flex justify-center flex-wrap gap-x-6 gap-y-2">
-                <a href="tel:+916304180019" class="hover:text-white transition duration-300">+91 63041 80019</a>
-                <span>|</span>
-                <a href="mailto:nvguravaiah@gmail.com" class="hover:text-white transition duration-300">nvguravaiah@gmail.com</a>
-                <span>|</span>
-                <a href="https://www.linkedin.com/in/guravaiah-nallabothula-449985251/" target="_blank" class="hover:text-white transition duration-300">LinkedIn Profile</a>
-            </div>
+        <div class="flex flex-wrap justify-center md:justify-start gap-x-3 text-gray-600">
+          <span>Markapuram, Andhra Pradesh</span><span>|</span>
+          <a href="tel:+916304180019" class="hover:text-blue-600">+91 63041 80019</a><span>|</span>
+          <a href="mailto:nvguravaiah@gmail.com" class="hover:text-blue-600">nvguravaiah@gmail.com</a>
         </div>
-    </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-xl md:text-2xl font-bold">Professional Summary</h2>
+          <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+            Motivated Full Stack Web Developer skilled in React, Angular, and Laravel. Passionate about scalable systems, optimized UI/UX, and strong backend integrations.
+          </p>
+        </div>
+      </div>
+    </section>
 
-            const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-            smoothScrollLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = document.querySelector('header').offsetHeight;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20;
+    <section id="skills" class="py-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">Technical Skills</h2>
+      <p class="text-base md:text-lg text-gray-600 text-center max-w-3xl mx-auto mb-6">
+        Tap between categories to visualize capabilities.
+      </p>
 
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            const sectionObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        document.querySelectorAll('.nav-link').forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${entry.target.id}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, { rootMargin: '-100px 0px -50% 0px' });
+      <div class="flex flex-wrap justify-center gap-2 border-b pb-2">
+        <button class="skill-tab active text-base px-4 py-2 rounded-t-md border-b-2" data-skill="frontend">Frontend</button>
+        <button class="skill-tab text-base px-4 py-2 rounded-t-md border-b-2 border-transparent" data-skill="backend">Backend</button>
+        <button class="skill-tab text-base px-4 py-2 rounded-t-md border-b-2 border-transparent" data-skill="tools">Databases & Tools</button>
+      </div>
 
-            document.querySelectorAll('section').forEach(section => {
-                sectionObserver.observe(section);
-            });
+      <div class="chart-container mt-8">
+        <canvas id="skillsChart"></canvas>
+      </div>
+    </section>
 
-            const skillsData = {
-                frontend: {
-                    labels: ['React.js', 'Angular', 'TypeScript', 'JavaScript (ES6+)', 'Redux', 'HTML5/CSS3', 'Ant Design'],
-                    data: [90, 85, 85, 90, 85, 95, 80]
-                },
-                backend: {
-                    labels: ['PHP', 'Laravel', 'Scala', 'Zio Framework', 'Django Framework', 'Python', 'Pandas', 'NumPy', 'Scikit-Learn'],
-                    data: [85, 85, 85, 85, 85, 80, 75, 70, 65]
-                },
-                tools: {
-                    labels: ['MySQL', 'Postgres DB', 'Git', 'Data Cleaning', 'EDA'],
-                    data: [85, 80, 90, 80, 75]
-                }
-            };
+    <section id="experience" class="py-16 bg-white rounded-xl shadow-lg p-6 md:p-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Professional Experience</h2>
 
-            const ctx = document.getElementById('skillsChart').getContext('2d');
-            let skillsChart = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: skillsData.frontend.labels,
-                    datasets: [{
-                        label: 'Proficiency',
-                        data: skillsData.frontend.data,
-                        backgroundColor: 'rgba(37, 99, 235, 0.2)',
-                        borderColor: 'rgba(37, 99, 235, 1)',
-                        borderWidth: 2,
-                        pointBackgroundColor: 'rgba(37, 99, 235, 1)',
-                        pointBorderColor: '#fff',
-                        pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(37, 99, 235, 1)'
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.label}: ${context.raw}%`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        r: {
-                            angleLines: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            },
-                            grid: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            },
-                            pointLabels: {
-                                font: {
-                                    size: 13,
-                                    weight: '600'
-                                },
-                                color: '#374151'
-                            },
-                            ticks: {
-                                beginAtZero: true,
-                                max: 100,
-                                min: 0,
-                                stepSize: 20,
-                                backdropColor: 'transparent',
-                                color: '#6b7280'
-                            }
-                        }
-                    }
-                }
-            });
+      <div class="max-w-4xl mx-auto text-center md:text-left">
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold">Project Associate</h3>
+          <p class="text-gray-700">Aptroid Consulting (India) Pvt. Ltd | Hyderabad</p>
+          <p class="text-gray-500 italic">Feb 2024 – Present</p>
+        </div>
 
-            const skillTabs = document.querySelectorAll('.skill-tab');
-            skillTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const skillCategory = tab.dataset.skill;
-                    const newData = skillsData[skillCategory];
+        <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+          <button class="project-tab text-sm md:text-base px-4 py-1 rounded-full bg-gray-100" data-project="zasper">Zasper</button>
+          <button class="project-tab active text-sm md:text-base px-4 py-1 rounded-full" data-project="liveintent">LiveIntent</button>
+        </div>
 
-                    skillsChart.data.labels = newData.labels;
-                    skillsChart.data.datasets[0].data = newData.data;
-                    skillsChart.update();
+        <div id="project-content-container">
+          <div id="zasper-content" class="hidden space-y-3">
+            <p class="font-semibold">Frontend Developer for Zasper</p>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+              <li>Developed immersive UI with React, Redux, and React Query.</li>
+              <li>Leveraged Ant Design for component-driven architecture.</li>
+            </ul>
+          </div>
 
-                    skillTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                });
-            });
+          <div id="liveintent-content" class="space-y-3">
+            <p class="font-semibold">Full Stack Developer for LiveIntent</p>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+              <li>Built interactive Angular UI modules.</li>
+              <li>Worked on backend services using Laravel, Scala, and ZIO.</li>
+              <li>Handled relational databases including Postgres and MySQL.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            const projectTabs = document.querySelectorAll('.project-tab');
-            const projectContents = document.querySelectorAll('#project-content-container > div');
-            
-            // Set LiveIntent as default active project
-            document.getElementById('zasper-content').classList.add('hidden');
-            document.querySelector('[data-project="zasper"]').classList.remove('active');
-            document.querySelector('[data-project="liveintent"]').classList.add('active');
+    <section id="education" class="py-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Education & Certifications</h2>
 
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold text-blue-600 mb-2">B.Tech in Computer Science</h3>
+          <p class="font-semibold">RGUKT Nuzvid</p>
+          <p class="text-gray-600 mb-1">Graduated: 2024</p>
+          <p class="font-medium text-gray-700">CGPA: 9.0 / 10</p>
+        </div>
 
-            projectTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const project = tab.dataset.project;
-                    
-                    projectContents.forEach(content => {
-                        if (content.id === `${project}-content`) {
-                            content.classList.remove('hidden');
-                        } else {
-                            content.classList.add('hidden');
-                        }
-                    });
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold text-blue-600 mb-2">Certification</h3>
+          <p class="font-semibold">Cyber Security Virtual Internship</p>
+          <p class="text-gray-600">Issued by: AICTE</p>
+        </div>
+      </div>
+    </section>
 
-                    projectTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                });
-            });
-        });
-    </script>
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300 py-10">
+    <div class="container mx-auto px-6 text-center space-y-4">
+      <h3 class="text-2xl font-bold">Get in Touch</h3>
+      <p>Available for new opportunities (2 Months Notice Period)</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="tel:+916304180019" class="hover:text-white">+91 63041 80019</a>
+        <span>|</span>
+        <a href="mailto:nvguravaiah@gmail.com" class="hover:text-white">nvguravaiah@gmail.com</a>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/guravaiah-nallabothula-449985251/" target="_blank" class="hover:text-white">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    document.querySelectorAll('#menu a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
+
+    const navLinks = document.querySelectorAll('.nav-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+
+    const skillsData = {
+      frontend: { labels: ['React', 'Angular', 'TypeScript', 'JavaScript', 'Redux', 'HTML/CSS', 'Ant Design'], data: [90, 85, 85, 90, 85, 95, 80] },
+      backend: { labels: ['PHP', 'Laravel', 'Scala', 'Zio', 'Django', 'Python', 'Pandas', 'NumPy'], data: [85, 85, 80, 80, 75, 80, 70, 65] },
+      tools: { labels: ['MySQL', 'Postgres', 'Git', 'Data Cleaning', 'EDA'], data: [85, 80, 90, 80, 75] }
+    };
+
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+    let chart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: skillsData.frontend.labels,
+        datasets: [{
+          label: 'Proficiency (%)',
+          data: skillsData.frontend.data,
+          backgroundColor: 'rgba(37,99,235,0.2)',
+          borderColor: '#2563EB',
+          pointBackgroundColor: '#2563EB'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { r: { min: 0, max: 100, ticks: { stepSize: 20 } } },
+        plugins: { legend: { display: false } }
+      }
+    });
+
+    document.querySelectorAll('.skill-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.skill-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const skill = tab.dataset.skill;
+        chart.data.labels = skillsData[skill].labels;
+        chart.data.datasets[0].data = skillsData[skill].data;
+        chart.update();
+      });
+    });
+
+    const projectTabs = document.querySelectorAll('.project-tab');
+    const contents = document.querySelectorAll('#project-content-container > div');
+
+    projectTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        projectTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        contents.forEach(c => c.classList.add('hidden'));
+        document.getElementById(tab.dataset.project + '-content').classList.remove('hidden');
+      });
+    });
+  </script>
 </body>
 </html>
